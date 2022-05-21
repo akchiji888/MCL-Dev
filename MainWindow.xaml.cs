@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Panuon.UI.Silver;
+using ProjBobcat.Class.Helper.SystemInfo;
 
 namespace MCL_Dev
 {
@@ -26,6 +27,7 @@ namespace MCL_Dev
             InitializeComponent();
             ZhuYe zhuye = new ZhuYe();
             test test = new test();
+            SheZhi shezhi = new SheZhi();
             page.Content = new Frame()
             {
                 Content = zhuye
@@ -33,8 +35,16 @@ namespace MCL_Dev
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
 
             banner.Background = new SolidColorBrush(color);
+            #region 主页版图颜色
             zhuye.start.BorderBrush = new SolidColorBrush(color);
             zhuye.start.Foreground = new SolidColorBrush(color);
+            #endregion
+            #region 设置主题色
+            shezhi.javaBanBen.Foreground = new SolidColorBrush(color);
+            shezhi.javaCombo.Foreground = new SolidColorBrush(color);
+            #endregion
+            shezhi.javaCombo.ItemsSource = ProjBobcat.Class.Helper.SystemInfoHelper.FindJava();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

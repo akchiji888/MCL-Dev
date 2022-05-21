@@ -10,6 +10,8 @@
       Title="SheZhi">
 
     <Grid>
-        
+        <ComboBox x:Name="javaCombo" HorizontalAlignment="Left" Margin="105,22,0,0" VerticalAlignment="Top" Width="208" Height="23" BorderBrush="{x:Null}" Foreground="#FF0096FF"/>
+        <TextBlock x:Name="javaBanBen" HorizontalAlignment="Left" Margin="10,22,0,0" TextWrapping="Wrap" Text="Java版本：" VerticalAlignment="Top" Foreground="#FF0096FF" FontSize="18"/>
+
     </Grid>
 </Page>
