@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjBobcat.Class.Helper;
+using SquareMinecraftLauncher.Minecraft;
 
 namespace MCL_Dev
 {
@@ -23,6 +25,8 @@ namespace MCL_Dev
         public SheZhi()
         {
             InitializeComponent();
+            SquareMinecraftLauncher.Minecraft.Tools tools = new SquareMinecraftLauncher.Minecraft.Tools();
+            javaCombo.ItemsSource = tools.GetJavaPath();
         }
     }
 }
