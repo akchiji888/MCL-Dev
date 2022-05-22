@@ -43,7 +43,7 @@ namespace MCL_Dev
             shezhi.javaBanBen.Foreground = new SolidColorBrush(color);
             shezhi.javaCombo.Foreground = new SolidColorBrush(color);
             #endregion
-            shezhi.javaCombo.ItemsSource = ProjBobcat.Class.Helper.SystemInfoHelper.FindJava();
+            shezhi.javaCombo.ItemsSource = ProjBobcat.Class.Helper.SystemInfoHelper.FindJava();//自动找Java
 
         }
 
