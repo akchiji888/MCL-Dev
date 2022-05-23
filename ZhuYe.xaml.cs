@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Panuon.UI.Silver;
+using ProjBobcat.Class.Model;
 
 namespace MCL_Dev
 {
@@ -27,7 +28,6 @@ namespace MCL_Dev
         {
             ServicePointManager.DefaultConnectionLimit = 512;
             InitializeComponent();
-
         }
 
         private void start_Click(object sender, RoutedEventArgs e)

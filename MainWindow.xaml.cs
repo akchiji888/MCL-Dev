@@ -15,6 +15,14 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using Panuon.UI.Silver;
 using ProjBobcat.Class.Helper.SystemInfo;
+using ProjBobcat.DefaultComponent.Launch.GameCore;
+using ProjBobcat.Class.Helper;
+using ProjBobcat.Class.Model;
+using ProjBobcat.Class.Model.LauncherProfile;
+using ProjBobcat.DefaultComponent.Launch;
+using ProjBobcat.Event;
+using ProjBobcat.DefaultComponent.Authenticator;
+using ProjBobcat.DefaultComponent.Logging;
 
 namespace MCL_Dev
 {
@@ -24,9 +32,28 @@ namespace MCL_Dev
     public partial class MainWindow : WindowX
     {
         
+
+
+
+
+
+
         public MainWindow()
         {
             InitializeComponent();
+            #region 初始化核心
+            var clientToken = new Guid("12345678-0523-8888-8888-888888888888");
+            var rootPath = ".minecraft";
+            var core = new DefaultGameCore
+            {
+                ClientToken = clientToken,
+                RootPath = rootPath,
+                VersionLocator = new DefaultVersionLocator(rootPath, clientToken)
+                {
+                    LauncherProfileParser = new DefaultLauncherProfileParser(rootPath, clientToken)
+                }
+            };
+            #endregion
             ZhuYe zhuye = new ZhuYe();
             test test = new test();
             SheZhi shezhi = new SheZhi();
@@ -35,7 +62,7 @@ namespace MCL_Dev
                 Content = zhuye
             };
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
-
+            zhuye.versionCombo.ItemsSource = core.VersionLocator.GetAllGames().ToList();
             banner.Background = new SolidColorBrush(color);
             #region 主页版图颜色
             zhuye.start.BorderBrush = new SolidColorBrush(color);
