@@ -12,6 +12,8 @@
     <Grid>
         <ComboBox DisplayMemberPath="Version" x:Name="javaCombo" HorizontalAlignment="Left" Margin="105,22,0,0" VerticalAlignment="Top" Width="208" Height="23" BorderBrush="{x:Null}" Foreground="#FF0397FF"/>
         <TextBlock x:Name="javaBanBen" HorizontalAlignment="Left" Margin="10,22,0,0" TextWrapping="Wrap" Text="Java版本：" VerticalAlignment="Top" Foreground="#FF0096FF" FontSize="18"/>
+        <TextBlock x:Name="ZuiDaRAM" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF0096FF" FontSize="18"><Run Text="最大内存"/><Run Language="zh-cn" Text="(MB)"/><Run Text="："/></TextBlock>
+        <TextBox x:Name="maxMem" HorizontalAlignment="Left" Margin="146,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123" Height="23" Foreground="#FF0078D7" Cursor="IBeam"/>
 
     </Grid>
 </Page>

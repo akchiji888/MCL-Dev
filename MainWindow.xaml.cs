@@ -23,6 +23,7 @@ using ProjBobcat.DefaultComponent.Launch;
 using ProjBobcat.Event;
 using ProjBobcat.DefaultComponent.Authenticator;
 using ProjBobcat.DefaultComponent.Logging;
+using SquareMinecraftLauncher.Minecraft;
 
 namespace MCL_Dev
 {
@@ -31,20 +32,13 @@ namespace MCL_Dev
     /// </summary>
     public partial class MainWindow : WindowX
     {
-        
-
-
-
-
-
-
-        public MainWindow()
+        public static DefaultGameCore core;
+        public static void InitLauncherCore()
         {
-            InitializeComponent();
-            #region 初始化核心
-            var clientToken = new Guid("12345678-0523-8888-8888-888888888888");
+            var clientToken = new Guid("88888888-8888-8888-8888-888888888888");
+            //var rootPath = Path.GetFullPath(".minecraft\");
             var rootPath = ".minecraft";
-            var core = new DefaultGameCore
+            core = new DefaultGameCore
             {
                 ClientToken = clientToken,
                 RootPath = rootPath,
@@ -53,7 +47,11 @@ namespace MCL_Dev
                     LauncherProfileParser = new DefaultLauncherProfileParser(rootPath, clientToken)
                 }
             };
-            #endregion
+        }
+
+        public MainWindow()
+        {
+            InitializeComponent();
             ZhuYe zhuye = new ZhuYe();
             test test = new test();
             SheZhi shezhi = new SheZhi();
@@ -61,12 +59,16 @@ namespace MCL_Dev
             {
                 Content = zhuye
             };
+            InitLauncherCore();
+            
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
             zhuye.versionCombo.ItemsSource = core.VersionLocator.GetAllGames().ToList();
             banner.Background = new SolidColorBrush(color);
             #region 主页版图颜色
             zhuye.start.BorderBrush = new SolidColorBrush(color);
             zhuye.start.Foreground = new SolidColorBrush(color);
+            zhuye.versionCombo.Foreground = new SolidColorBrush(color);
+            zhuye.gameVersion.Foreground = new SolidColorBrush(color);  
             #endregion
             #region 设置主题色
             shezhi.javaBanBen.Foreground = new SolidColorBrush(color);
