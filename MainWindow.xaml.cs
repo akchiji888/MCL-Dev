@@ -60,7 +60,10 @@ namespace MCL_Dev
                 Content = zhuye
             };
             InitLauncherCore();
-            
+            settingControl.Content = new Frame()
+            {
+                Content = shezhi
+            };
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
             zhuye.versionCombo.ItemsSource = core.VersionLocator.GetAllGames().ToList();
             banner.Background = new SolidColorBrush(color);
