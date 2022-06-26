@@ -23,7 +23,8 @@ using ProjBobcat.DefaultComponent.Launch;
 using ProjBobcat.Event;
 using ProjBobcat.DefaultComponent.Authenticator;
 using ProjBobcat.DefaultComponent.Logging;
-using SquareMinecraftLauncher.Minecraft;
+using FastX.Core.Launch;//启动类的命名空间
+using FastX.Core.Helpers;
 
 namespace MCL_Dev
 {
@@ -32,40 +33,23 @@ namespace MCL_Dev
     /// </summary>
     public partial class MainWindow : WindowX
     {
-        public static DefaultGameCore core;
-        public static void InitLauncherCore()
-        {
-            var clientToken = new Guid("88888888-8888-8888-8888-888888888888");
-            //var rootPath = Path.GetFullPath(".minecraft\");
-            var rootPath = ".minecraft";
-            core = new DefaultGameCore
-            {
-                ClientToken = clientToken,
-                RootPath = rootPath,
-                VersionLocator = new DefaultVersionLocator(rootPath, clientToken)
-                {
-                    LauncherProfileParser = new DefaultLauncherProfileParser(rootPath, clientToken)
-                }
-            };
-        }
-
         public MainWindow()
         {
             InitializeComponent();
             ZhuYe zhuye = new ZhuYe();
             test test = new test();
             SheZhi shezhi = new SheZhi();
+            LaunchAsyncs launch = new LaunchAsyncs();
             page.Content = new Frame()
             {
                 Content = zhuye
             };
-            InitLauncherCore();
+            SettingHelper setting = new SettingHelper();
             settingControl.Content = new Frame()
             {
                 Content = shezhi
             };
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
-            zhuye.versionCombo.ItemsSource = core.VersionLocator.GetAllGames().ToList();
             banner.Background = new SolidColorBrush(color);
             #region 主页版图颜色
             zhuye.start.BorderBrush = new SolidColorBrush(color);

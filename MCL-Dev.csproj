@@ -11,8 +11,14 @@
 
   <ItemGroup>
     <PackageReference Include="Panuon.UI.Silver" Version="1.1.3.4" />
-    <PackageReference Include="ProjBobcat" Version="1.12.0" />
+    <PackageReference Include="ProjBobcat" Version="1.16.0" />
     <PackageReference Include="SquareMinecraftLauncher.Core" Version="3.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FastX.Core">
+      <HintPath>..\..\..\Desktop\dll\FastX.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
