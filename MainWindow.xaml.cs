@@ -27,6 +27,7 @@ namespace MCL_Dev
             InitializeComponent();
             test test = new test();
             SheZhi shezhi = new SheZhi();
+            ZhuYe zhuye = new ZhuYe();
             
             settingControl.Content = new Frame()
             {
@@ -35,10 +36,10 @@ namespace MCL_Dev
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
             banner.Background = new SolidColorBrush(color);
             #region 主页版图颜色
-   //         zhuye.start.BorderBrush = new SolidColorBrush(color);
-     //       zhuye.start.Foreground = new SolidColorBrush(color);
-       //     zhuye.versionCombo.Foreground = new SolidColorBrush(color);
-         //   zhuye.gameVersion.Foreground = new SolidColorBrush(color);  
+            zhuye.start.BorderBrush = new SolidColorBrush(color);
+            zhuye.start.Foreground = new SolidColorBrush(color);
+            zhuye.versionCombo.Foreground = new SolidColorBrush(color);
+            zhuye.gameVersion.Foreground = new SolidColorBrush(color);  
             #endregion
             #region 设置主题色
             shezhi.javaBanBen.Foreground = new SolidColorBrush(color);
