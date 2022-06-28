@@ -14,17 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using Panuon.UI.Silver;
-using ProjBobcat.Class.Helper.SystemInfo;
-using ProjBobcat.DefaultComponent.Launch.GameCore;
-using ProjBobcat.Class.Helper;
-using ProjBobcat.Class.Model;
-using ProjBobcat.Class.Model.LauncherProfile;
-using ProjBobcat.DefaultComponent.Launch;
-using ProjBobcat.Event;
-using ProjBobcat.DefaultComponent.Authenticator;
-using ProjBobcat.DefaultComponent.Logging;
-using FastX.Core.Launch;//启动类的命名空间
-using FastX.Core.Helpers;
 
 namespace MCL_Dev
 {
@@ -36,15 +25,9 @@ namespace MCL_Dev
         public MainWindow()
         {
             InitializeComponent();
-            ZhuYe zhuye = new ZhuYe();
             test test = new test();
             SheZhi shezhi = new SheZhi();
-            LaunchAsyncs launch = new LaunchAsyncs();
-            page.Content = new Frame()
-            {
-                Content = zhuye
-            };
-            SettingHelper setting = new SettingHelper();
+            
             settingControl.Content = new Frame()
             {
                 Content = shezhi
@@ -52,10 +35,10 @@ namespace MCL_Dev
             Color color = (Color)ColorConverter.ConvertFromString("#FF0067FF");
             banner.Background = new SolidColorBrush(color);
             #region 主页版图颜色
-            zhuye.start.BorderBrush = new SolidColorBrush(color);
-            zhuye.start.Foreground = new SolidColorBrush(color);
-            zhuye.versionCombo.Foreground = new SolidColorBrush(color);
-            zhuye.gameVersion.Foreground = new SolidColorBrush(color);  
+   //         zhuye.start.BorderBrush = new SolidColorBrush(color);
+     //       zhuye.start.Foreground = new SolidColorBrush(color);
+       //     zhuye.versionCombo.Foreground = new SolidColorBrush(color);
+         //   zhuye.gameVersion.Foreground = new SolidColorBrush(color);  
             #endregion
             #region 设置主题色
             shezhi.javaBanBen.Foreground = new SolidColorBrush(color);

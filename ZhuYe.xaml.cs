@@ -14,15 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Panuon.UI.Silver;
-using ProjBobcat.Class.Model;
-using ProjBobcat.Class.Model.LauncherProfile;
-using ProjBobcat.DefaultComponent.Authenticator;
-using ProjBobcat.DefaultComponent.Launch;
-using ProjBobcat.DefaultComponent.Launch.GameCore;
-using FastX.Core;
-using FastX.Class.Models;
-using FastX.Core.Launch;
-using FastX.Core.Helpers;
 
 namespace MCL_Dev
 {
@@ -36,8 +27,7 @@ namespace MCL_Dev
         public ZhuYe()
         {
             ServicePointManager.DefaultConnectionLimit = 512;
-            InitializeComponent();
-            SettingHelper setting = new SettingHelper();            
+            InitializeComponent();           
             SheZhi shezhi = new SheZhi();
             var version = tools.GetAllTheExistingVersion();
             versionCombo.ItemsSource = version;
@@ -45,8 +35,9 @@ namespace MCL_Dev
         }
 
         private async void start_Click(object sender, RoutedEventArgs e)
-        {          
-
+        {
+            SheZhi shezhi = new SheZhi();
+            await game.StartGame(versionCombo.Text, shezhi.javaCombo.Text , 4096, "114514");
         }
     }
 }
