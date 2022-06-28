@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjBobcat.Class.Helper;
 using SquareMinecraftLauncher.Core;
+using FastX.Core.Helpers;
 
 namespace MCL_Dev
 {
@@ -26,9 +27,13 @@ namespace MCL_Dev
     {
         public SheZhi()
         {
-            SquareMinecraftLauncher.Minecraft.Tools tools = new SquareMinecraftLauncher.Minecraft.Tools(); 
             InitializeComponent();
-            javaCombo.ItemsSource = tools.GetJavaPath();
+            SettingHelper setting = new SettingHelper();
+            var v = setting.GetJavaPath();
+            foreach (var jaav in v)
+            {
+                javaCombo.Items.Add(jaav.Path);
+            }
         }
     }
 }
